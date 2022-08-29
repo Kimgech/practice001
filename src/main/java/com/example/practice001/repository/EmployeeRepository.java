@@ -30,6 +30,12 @@ public class EmployeeRepository {
     }
 
     @Transactional
+    public Employee update(Employee employee) {
+        entityManager.merge(employee);
+        return employee;
+    }
+
+    @Transactional
     public Employee deleteById(long id) {
     Employee employee = findById(id);
     if (employee != null) {

@@ -26,6 +26,9 @@ public class Employee {
         this.email=email;
     }
 
+    public Employee(Object o, String name, String gender, String email) {
+    }
+
     public long getId() {
         return id;
     }
