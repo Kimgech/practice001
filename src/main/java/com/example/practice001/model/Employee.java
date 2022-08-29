@@ -7,15 +7,15 @@ import javax.persistence.*;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
-    @Column(name = "name", length = 255)
+    @Column(name = "name")
     private String name;
 
     @Column(name = "gender", length = 7)
     private String gender;
 
-    @Column(name = "email", unique = true )
+    @Column(name = "email", unique = true)
     private String email;
 
     public Employee(){
@@ -26,9 +26,21 @@ public class Employee {
         this.email=email;
     }
 
-    public Employee(Object o, String name, String gender, String email) {
+    public Employee(Long id, String name, String gender, String email) {
+        this.id=id;
+        this.name=name;
+        this.gender=gender;
+        this.email=email;
     }
-
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
     public long getId() {
         return id;
     }

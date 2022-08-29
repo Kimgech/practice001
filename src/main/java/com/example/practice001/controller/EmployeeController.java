@@ -30,7 +30,7 @@ public class EmployeeController {
             @RequestParam String gender,
             @RequestParam String email)
     {
-        return employeeRepository.save(new Employee(null,name,gender,email));
+        return employeeRepository.save(new Employee(name,gender,email));
     }
 
     @DeleteMapping("/delete/{id}")
@@ -40,10 +40,10 @@ public class EmployeeController {
 
     @PutMapping("/update")
     public Employee update(
-            @PathVariable Long id,
-            @PathVariable String name,
-            @PathVariable String gender,
-            @PathVariable String email
+            @RequestParam Long id,
+            @RequestParam String name,
+            @RequestParam String gender,
+            @RequestParam String email
     ){
         return employeeRepository.update(new Employee(id,name,gender,email));
     }

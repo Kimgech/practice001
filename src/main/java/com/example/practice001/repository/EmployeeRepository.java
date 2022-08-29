@@ -25,8 +25,10 @@ public class EmployeeRepository {
 
     @Transactional
      public Employee save(Employee employee) {
-    entityManager.persist(employee);
+        System.out.println(employee);
+        entityManager.merge(employee);
     return employee;
+
     }
 
     @Transactional
